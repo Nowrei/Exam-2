@@ -1,5 +1,5 @@
 <div class="sticky-top">
-    <nav class="navbar navbar-dark text-light" >
+    <nav class="navbar navbar-dark" >
       <div class="container justify-content-between" >
         <div class="d-none d-lg-block">
           <a href="#" class="navbar-brand">Logo projet</a>
