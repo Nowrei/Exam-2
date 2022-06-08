@@ -3,11 +3,11 @@
         <div class="row d-flex justify-content-center flex-row bd-highlight mb-3 mt-3">
 
         
-  <div class="col-md-4 p-2 bd-highlight mt-2"> <a href="https://www.github.com" class="text-white" alt="Responsive"><h2><i
+  <div class="col-md-1 p-2 bd-highlight mt-2"> <a href="https://www.github.com" class="text-white" alt="Responsive"><h2><i
                 class="fa-brands fa-github fa-xl"></i></h2></a></div>
-  <div class="col-md-4 p-2 bd-highlight mt-2"><a href="https://www.facebook.com/" alt="Responsive"
+  <div class="col-md-1 p-2 bd-highlight mt-2"><a href="https://www.facebook.com/" alt="Responsive"
               class="text-white"><h2><i class="fa-brands fa-facebook fa-xl"></i></h2></a></div>
-              <div class="col-md-4 p-2 bd-highlight mt-2"><a href="https://www.instagram.com" alt="Responsive"
+              <div class="col-md-1 p-2 bd-highlight mt-2"><a href="https://www.instagram.com" alt="Responsive"
               class="text-white"><h2><i class="fa-brands fa-instagram fa-xl"></i></h2></a></div>             
 
         </div>
