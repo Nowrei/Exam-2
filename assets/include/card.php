@@ -1,4 +1,4 @@
-<div class="row row-cols-1 row-cols-md-3 g-4 ms-5 me-5 mt-3">
+<div class="row row-cols-1 row-cols-md-3 g-4 ms-5 me-5 mt-5 mb-5">
   <div class="col">
     <div class="card h-100">
       <a href="#"><img src="assets/img/539-200x200.jpg" class="card-img-top rounded" alt="Responsive image"></a>
