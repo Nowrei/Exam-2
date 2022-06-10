@@ -26,7 +26,7 @@
             if (isset($_SESSION['pseudo_utilisateur'])) {
               ?>
             <li><a class="dropdown-item" href="#" ><?php echo $_SESSION['pseudo_utilisateur'];?></a></li>
-            <li><a class="dropdown-item" href="#" >Ajouter un projet</a></li>
+            <li><a class="dropdown-item" href="utilisateur.php" >Ajouter un projet</a></li>
             <li><a class="dropdown-item" href="assets/php/deconnection.php" >Se déconnecter</a></li>
             <?php }else { ?>
             <li><a class="dropdown-item" href="connection.php" >Connection</a></li>
