@@ -1,3 +1,7 @@
+<?php session_start(); 
+if($_SESSION['role_utilisateur'] = '0') { ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +22,7 @@
           <h5 class="modal-title">Add New User</h5>
           <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
         </div>
+       
         <div class="modal-body">
           <form id="add-user-form" class="p-2" novalidate>
             <div class="row mb-3 gx-3">
@@ -57,6 +62,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
+
           <h5 class="modal-title">Edit This User</h5>
           <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -135,5 +141,8 @@
   </div>
   <script src="main.js"></script>
 </body>
-
 </html>
+<?php }
+
+else{header("location:index.php");}
+        ?>

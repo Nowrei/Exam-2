@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
 <body>
 <?php include 'assets/include/navbar.php'?>
-
+<?php echo $_SESSION['role_utilisateur']; ?>
 <?php include 'assets/include/card.php'?>
 
 <?php include 'assets/include/footer.php' ?>
