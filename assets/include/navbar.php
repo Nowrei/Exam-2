@@ -22,9 +22,17 @@
             Profil
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#" target="_blank" rel="#">Connection</a></li>
-            <li><a class="dropdown-item" href="#" target="_blank" rel="#">Inscription</a></li>
-            <li><a class="dropdown-item" href="#" target="_blank" rel="#">Ajouter un projet</a></li>
+          <?php 
+            if (isset($_SESSION['pseudo_utilisateur'])) {
+              ?>
+            <li><a class="dropdown-item" href="#" ><?php echo $_SESSION['pseudo_utilisateur'];?></a></li>
+            <li><a class="dropdown-item" href="#" >Ajouter un projet</a></li>
+            <li><a class="dropdown-item" href="assets/php/deconnection.php" >Se déconnecter</a></li>
+            <?php }else { ?>
+            <li><a class="dropdown-item" href="connection.php" >Connection</a></li>
+            <li><a class="dropdown-item" href="inscription.php" >Inscription</a></li>
+            <?php } ?>
+
           </ul>
 </div> 
               </li>
