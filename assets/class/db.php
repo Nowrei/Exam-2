@@ -26,12 +26,14 @@
   class Database extends Config {
     // Insert User Into Database
     public function insert($pseudo, $mail, $password, $role) {
-      $sql = 'INSERT INTO utilisateur (pseudo_utilisateur, mail_utilisateur, mdp_utilisateur, role_utilisateur) VALUES (:pseudo_utilisateur, :mail_utilisateur, :mdp_utilisateur, )';
+      $password = password_hash( $password, PASSWORD_DEFAULT);   
+      $sql = "INSERT INTO utilisateur (pseudo_utilisateur, mail_utilisateur, mdp_utilisateur, role_utilisateur) VALUES (:pseudo_utilisateur, :mail_utilisateur, :mdp_utilisateur, :role_utilisateur)";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
         ':pseudo_utilisateur' => $pseudo,
         ':mail_utilisateur' => $mail,
-        ':mdp_utilisateur' => $mdp,
+        ':mdp_utilisateur' => $password,
+        ':role_utilisateur' =>$role
     
       ]);
       return true;
@@ -39,7 +41,7 @@
 
     // Fetch All Users From Database
     public function read() {
-      $sql = 'SELECT * FROM utilisateur ORDER BY id DESC';
+      $sql = "SELECT * FROM utilisateur";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute();
       $result = $stmt->fetchAll();
@@ -48,7 +50,7 @@
 
     // Fetch Single User From Database
     public function readOne($id) {
-      $sql = 'SELECT * FROM utilisateur WHERE id = :id';
+      $sql = "SELECT * FROM utilisateur WHERE id = :i";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['id' => $id]);
       $result = $stmt->fetch();
@@ -57,7 +59,7 @@
 
     // Update Single User
     public function update($id, $pseudo, $mail, $mdp, $role) {
-      $sql = 'UPDATE utilisateur SET pseudo_utilisateur = :pseudo_utilisateur, mail_utilisateur = :mail_utilisateur, mdp_utilisateur = :mdp_utilisateur, role_utilisateur = :role_utilisateur WHERE id = :id';
+      $sql = "UPDATE utilisateur SET pseudo_utilisateur = :pseudo_utilisateur, mail_utilisateur = :mail_utilisateur, mdp_utilisateur = :mdp_utilisateur, role_utilisateur = :role_utilisateur WHERE id = :id";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
         ':pseudo_utilisateur' => $pseudo,
@@ -72,7 +74,7 @@
 
     // Delete User From Database
     public function delete($id) {
-      $sql = 'DELETE FROM utilisateur WHERE id = :id';
+      $sql = "DELETE FROM utilisateur WHERE id = :id";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['id' => $id]);
       return true;

@@ -11,9 +11,10 @@
     $pseudo = $util->testInput($_POST['pseudo']);
     $mail = $util->testInput($_POST['mail']);
     $password = $util->testInput($_POST['mdp']);
+    $role = $util->testInput($_POST['role']);
     
 
-    if ($db->insert($pseudo, $mail, $password, $phone)) {
+    if ($db->insert($pseudo, $mail, $password, $role)) {
       echo $util->showMessage('success', 'User inserted successfully!');
     } else {
       echo $util->showMessage('danger', 'Something went wrong!');
@@ -27,8 +28,8 @@
     if ($users) {
       foreach ($users as $row) {
         $output .= '<tr>
-                      <td>' . $row['id'] . '</td>
-                      <td>' . $row['pseudo_utilisteur'] . '</td>
+                      <td>' . $row['id_utilisateur'] . '</td>
+                      <td>' . $row['pseudo_utilisateur'] . '</td>
                       <td>' . $row['mail_utilisateur'] . '</td>
                       <td>' . $row['mdp_utilisateur'] . '</td>
                       <td>' . $row['role_utilisateur'] . '</td>
@@ -46,6 +47,7 @@
             </tr>';
     }
   }
+ 
 
   // Handle Edit User Ajax Request
   if (isset($_GET['edit'])) {

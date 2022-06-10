@@ -22,25 +22,30 @@
           <form id="add-user-form" class="p-2" novalidate>
             <div class="row mb-3 gx-3">
               <div class="col">
-                <input type="text" name="fname" class="form-control form-control-lg" placeholder="Enter First Name" required>
+                <input type="text" name="pseudo" class="form-control form-control-lg" placeholder="Pseudo" required>
                 <div class="invalid-feedback">First name is required!</div>
               </div>
 
               <div class="col">
-                <input type="text" name="lname" class="form-control form-control-lg" placeholder="Enter Last Name" required>
+                <input type="text" name="mail" class="form-control form-control-lg" placeholder="Mail" required>
                 <div class="invalid-feedback">Last name is required!</div>
               </div>
             </div>
 
             <div class="mb-3">
-              <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter E-mail" required>
+              <input type="password" name="mdp" class="form-control form-control-lg" placeholder="Entrer le mot de passe" id="mdp" required>
               <div class="invalid-feedback">E-mail is required!</div>
             </div>
-
             <div class="mb-3">
-              <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
-              <div class="invalid-feedback">Phone is required!</div>
+            <label for="Pays">Role</label>
+          <select class="form-select" aria-label="Default select example" id="role" name="role">
+            <option selected>0</option>
+            <option value="1">1</option>
+
+          </select>
             </div>
+
+
 
             <div class="mb-3">
               <input type="submit" value="Add User" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
