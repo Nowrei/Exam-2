@@ -1,3 +1,8 @@
+<?php 
+session_start();
+if(!isset($_SESSION['pseudo_utilisateur'])) {
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -57,3 +62,8 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>  
 </body>
+</html>
+<?php }
+
+else{header("location:index.php");}
+        ?>

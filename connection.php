@@ -1,3 +1,8 @@
+<?php 
+session_start();
+if(!isset($_SESSION['pseudo_utilisateur'])) {
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,8 +29,8 @@
 <div class="row">
 
         <div class="form-group">
-          <label for="nom">Pseudo</label>
-          <input type="text" class="form-control" placeholder="Pseudo" id="pseudo" name="pseudo">
+          <label for="nom">Identifiant</label>
+          <input type="text" class="form-control" placeholder="Entrer votre mail ou pseudo" id="identifiant" name="identifiant">
         </div>
         <div class="form-group">
           <label for="prenom">Mot de passe</label>
@@ -49,3 +54,8 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>  
 </body>
+</html>
+<?php }
+
+else{header("location:index.php");}
+        ?>

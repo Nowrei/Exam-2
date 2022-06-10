@@ -1,13 +1,14 @@
 <?php
 include 'config.php';
 
-$email = $_POST['pseudo'];
+$identifiant = $_POST['identifiant'];
 $password = $_POST['mdp'];
 
-$sql = "SELECT * FROM ex_utilisateur WHERE pseudo_utilisateur = :pseudo_utilisateur";
+$sql = "SELECT * FROM ex_utilisateur WHERE pseudo_utilisateur = :pseudo_utilisateur OR mail_utilisateur = :mail_utilisateur";
 $requete= $bdd->prepare($sql);
 $requete->execute(array(
-    ':pseudo_utilisateur' => $email
+    ':pseudo_utilisateur' => $identifiant,
+    ':mail_utilisateur' =>$identifiant
 ));
 
 $count = $requete->rowCount();
@@ -19,7 +20,7 @@ if ( $count == 1) {
                 if (password_verify($password,$resultat['mdp_utilisateur'])) {
                     session_start();
                     $_SESSION['id'] = $resultat['id_utilisateur'];
-                    $_SESSION['pseudo'] = $resultat['pseudo_utilisateur'];
+                    $_SESSION['pseudo_utilisateur'] = $resultat['pseudo_utilisateur'];
                     header("location:../../index.php");
 
 
