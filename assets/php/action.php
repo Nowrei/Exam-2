@@ -53,8 +53,8 @@
   if (isset($_GET['edit'])) {
     $id = $_GET['id'];
 
-    $user = $db->readOne($id);
-    echo json_encode($user);
+    $users = $db->readOne($id);
+    echo json_encode($users);
   }
 
   // Handle Update User Ajax Request
@@ -63,6 +63,7 @@
     $pseudo = $util->testInput($_POST['pseudo']);
     $mail = $util->testInput($_POST['mail']);
     $password = $util->testInput($_POST['mdp']);
+    $role = $util->testInput($_POST['role']);
 
 
     if ($db->update($id, $fname, $lname, $email, $phone)) {

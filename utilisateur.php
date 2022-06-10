@@ -70,24 +70,28 @@
             <input type="hidden" name="id" id="id">
             <div class="row mb-3 gx-3">
               <div class="col">
-                <input type="text" name="fname" id="fname" class="form-control form-control-lg" placeholder="Enter First Name" required>
-                <div class="invalid-feedback">First name is required!</div>
+                <input type="text" name="pseudo"  class="form-control form-control-lg" placeholder="Entrer le pseudo" required>
+                <div class="invalid-feedback">Un pseudo est requis !</div>
               </div>
 
               <div class="col">
-                <input type="text" name="lname" id="lname" class="form-control form-control-lg" placeholder="Enter Last Name" required>
-                <div class="invalid-feedback">Last name is required!</div>
+                <input type="email" name="mail"  class="form-control form-control-lg" placeholder="Enter Last Name" required>
+                <div class="invalid-feedback">Un mail est requis!</div>
               </div>
             </div>
 
             <div class="mb-3">
-              <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Enter E-mail" required>
-              <div class="invalid-feedback">E-mail is required!</div>
+              <input type="password" name="email"  class="form-control form-control-lg" placeholder="Enter E-mail" required>
+              <div class="invalid-feedback">Un mot de passe est requis!</div>
             </div>
 
             <div class="mb-3">
-              <input type="tel" name="phone" id="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
-              <div class="invalid-feedback">Phone is required!</div>
+            <label for="Pays">Role</label>
+              <select class="form-select" aria-label="Default select example" id="role" name="role">
+            <option selected>0</option>
+            <option value="1">1</option>
+
+                </select>
             </div>
 
             <div class="mb-3">

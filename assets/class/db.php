@@ -50,7 +50,7 @@
 
     // Fetch Single User From Database
     public function readOne($id) {
-      $sql = "SELECT * FROM utilisateur WHERE id = :i";
+      $sql = "SELECT * FROM utilisateur WHERE id = :id";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['id' => $id]);
       $result = $stmt->fetch();
@@ -59,6 +59,7 @@
 
     // Update Single User
     public function update($id, $pseudo, $mail, $mdp, $role) {
+      $password = password_hash( $password, PASSWORD_DEFAULT); 
       $sql = "UPDATE utilisateur SET pseudo_utilisateur = :pseudo_utilisateur, mail_utilisateur = :mail_utilisateur, mdp_utilisateur = :mdp_utilisateur, role_utilisateur = :role_utilisateur WHERE id = :id";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
@@ -66,7 +67,7 @@
         ':mail_utilisateur' => $mail,
         ':mdp_utilisateur' => $password,
         ':role_utilisateur' => $role,
-        'id' => $id
+        ':id' => $id
       ]);
 
       return true;
