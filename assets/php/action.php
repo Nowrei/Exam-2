@@ -34,9 +34,9 @@
                       <td>' . $row['mdp_utilisateur'] . '</td>
                       <td>' . $row['role_utilisateur'] . '</td>
                       <td>
-                        <a href="#" id="' . $row['id'] . '" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editUserModal">Edit</a>
+                        <a href="#" id="' . $row['id_utilisateur'] . '" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editUserModal">Edit</a>
 
-                        <a href="#" id="' . $row['id'] . '" class="btn btn-danger btn-sm rounded-pill py-0 deleteLink">Delete</a>
+                        <a href="#" id="' . $row['id_utilisateur'] . '" class="btn btn-danger btn-sm rounded-pill py-0 deleteLink">Delete</a>
                       </td>
                     </tr>';
       }
@@ -66,7 +66,7 @@
     $role = $util->testInput($_POST['role']);
 
 
-    if ($db->update($id, $fname, $lname, $email, $phone)) {
+    if ($db->update($id, $pseudo, $mail, $password, $role)) {
       echo $util->showMessage('success', 'User updated successfully!');
     } else {
       echo $util->showMessage('danger', 'Something went wrong!');

@@ -81,7 +81,7 @@
             </div>
 
             <div class="mb-3">
-              <input type="password" name="email"  class="form-control form-control-lg" placeholder="Enter E-mail" required>
+              <input type="password" name="mdp"  class="form-control form-control-lg" placeholder="Enter E-mail" required>
               <div class="invalid-feedback">Un mot de passe est requis!</div>
             </div>
 
