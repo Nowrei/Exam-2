@@ -1,5 +1,6 @@
 <?php session_start(); 
 if($_SESSION['role_utilisateur'] != '0') { ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

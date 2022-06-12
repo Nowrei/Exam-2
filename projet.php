@@ -126,6 +126,7 @@
             <thead>
               <tr>
                 <th>Titre</th>
+                <th>Lien GitHub</th>
                 <th>Lien</th>
                 <th>Image</th>
                 <th>Message</th>

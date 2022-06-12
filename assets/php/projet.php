@@ -14,7 +14,7 @@
     $lien = $util->testInput($_POST['lien']);
     $image = $util->testInput($_POST['image']);
     $message = $util->testInput($_POST['objet']);
-    $nom = $util->testInput($_SESSION['pseudo_utilisateur']);
+    $nom = $util->testInput($_GET($_SESSION['pseudo_utilisateur']));
     $heure = $util->testInput($t);
     $id_utilisateur = $util->testInput($_SESSION['id_utilisateur']);
     
