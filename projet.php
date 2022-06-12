@@ -26,26 +26,28 @@
               </div>
 
               <div class="col">
-                <input type="text" name="lien" class="form-control form-control-lg" placeholder="Lien" required>
-                <div class="invalid-feedback">Inséré un lien vers votre projet!</div>
+                <input type="text" name="github" class="form-control form-control-lg" placeholder="Lien Github" required>
+                <div class="invalid-feedback">Entrer un lien GitHub!</div>
               </div>
             </div>
 
             <div class="mb-3">
-                <label for="formFile" class="form-label"></label>
-                <input class="form-control" type="file" id="formFile" name="file">
-                <div class="invalid-feedback">Inséré une image!</div>
+              <input type="text" name="lien" class="form-control form-control-lg" placeholder="Entrer le lien de votre projet" id="lien" required>
+              <div class="invalid-feedback">Entrer un lien vers votre projet!</div>
             </div>
             <div class="mb-3">
-            <label for="message">Desciption</label>
-            <textarea class="form-control" placeholder="Laissez votre message ici" id="message" style="height: 100px" name="message"></textarea>
-            <div class="invalid-feedback">Entrer une description!</div>
-          </div>
+              <input type="text" name="image" class="form-control form-control-lg" placeholder="Entrer une image" id="image" required>
+              <div class="invalid-feedback">Entrer une image!</div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control form-control-lg" id="objet" placeholder="Description du projet" name="objet">
+              <div class="invalid-feedback">Entrer une description de votre projet!</div>
+            </div>
 
 
 
             <div class="mb-3">
-              <input type="submit" value="Ajouter votre projet" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
+              <input type="submit" value="Ajouter Utilisateur" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
             </div>
           </form>
         </div>
@@ -54,6 +56,52 @@
   </div>
   <!-- Add New User Modal End -->
 
+  <!-- Edit User Modal Start -->
+  <div class="modal fade" tabindex="-1" id="editUserModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editer un utilisateur</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-user-form" class="p-2" novalidate>
+            <input type="hidden" name="id" id="id">
+            <div class="row mb-3 gx-3">
+              <div class="col">
+                <input type="text" name="pseudo"  class="form-control form-control-lg" placeholder="Entrer le pseudo" required>
+                <div class="invalid-feedback">Un pseudo est requis !</div>
+              </div>
+
+              <div class="col">
+                <input type="email" name="mail"  class="form-control form-control-lg" placeholder="Entrer un mail" required>
+                <div class="invalid-feedback">Un mail est requis!</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="password" name="mdp"  class="form-control form-control-lg" placeholder="Entrer un mot de passe" required>
+              <div class="invalid-feedback">Un mot de passe est requis!</div>
+            </div>
+
+            <div class="mb-3">
+            <label for="Pays">Role</label>
+              <select class="form-select" aria-label="Default select example" id="role" name="role">
+            <option selected>0</option>
+            <option value="1">1</option>
+
+                </select>
+            </div>
+
+            <div class="mb-3">
+              <input type="submit" value="Update Utilisateur" class="btn btn-success btn-block btn-lg" id="edit-user-btn">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Edit User Modal End -->
   <div class="container">
     <div class="row mt-4">
       <div class="col-lg-12 d-flex justify-content-between align-items-center">
@@ -77,11 +125,10 @@
           <table class="table table-striped table-bordered text-center">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Pseudo</th>
-                <th>Email</th>
-                <th>Mot de passe</th>
-                <th>Role</th>
+                <th>Titre</th>
+                <th>Lien</th>
+                <th>Image</th>
+                <th>Message</th>
                 <th>Action</th>
               </tr>
             </thead>
