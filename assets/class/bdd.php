@@ -25,61 +25,35 @@
 
   class Database extends Config {
     // Insert User Into Database
-    public function insert($pseudo, $mail, $password, $role) {
-      $password = password_hash( $password, PASSWORD_DEFAULT);   
-      $sql = "INSERT INTO utilisateur (pseudo_utilisateur, mail_utilisateur, mdp_utilisateur, role_utilisateur) VALUES (:pseudo_utilisateur, :mail_utilisateur, :mdp_utilisateur, :role_utilisateur)";
+    public function insert($t, $nom, $titre, $lien, $file_name, $message, $id_utilisateur) {
+    
+      $sql = "INSERT INTO projet (nom_projet, heure_projet, titre_projet, lient_projet, image_projet, message_projet, id_utilisateur) VALUES (:nom_projet, :heure_projet, :titre_projet, :lient_projet, :image_projet, :message_projet, :id_utilisateur)";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
-        ':pseudo_utilisateur' => $pseudo,
-        ':mail_utilisateur' => $mail,
-        ':mdp_utilisateur' => $password,
-        ':role_utilisateur' =>$role
+        ':titre_projet' => $titre,
+        ':lient_projet' => $lien,
+        ':image_projet' => $file_name,
+        ':message_projet' =>$message,
+        ':nom_projet' => $nom,
+        'id_utilisateur' => $id_utilisateur,
+        ':heure_utilisateur' => $t
+
     
       ]);
-      return true;
-    }
+      
 
-    // Fetch All Users From Database
-    public function read() {
-      $sql = "SELECT * FROM utilisateur";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute();
-      $result = $stmt->fetchAll();
-      return $result;
+      return true;
     }
 
     // Fetch Single User From Database
     public function readOne($id) {
-      $sql = "SELECT * FROM utilisateur WHERE id = :id";
+      $sql = "SELECT * FROM projet ";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['id' => $id]);
       $result = $stmt->fetch();
       return $result;
     }
-
-    // Update Single User
-    public function update($id, $pseudo, $mail, $password, $role) {
-      $password = password_hash( $password, PASSWORD_DEFAULT); 
-      $sql = "UPDATE utilisateur SET pseudo_utilisateur = :pseudo_utilisateur, mail_utilisateur = :mail_utilisateur, mdp_utilisateur = :mdp_utilisateur, role_utilisateur = :role_utilisateur WHERE id_utilisateur = :id_utilisateur";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute([
-        ':pseudo_utilisateur' => $pseudo,
-        ':mail_utilisateur' => $mail,
-        ':mdp_utilisateur' => $password,
-        ':role_utilisateur' => $role,
-        ':id_utilisateur' => $id
-      ]);
-
-      return true;
-    }
-
-    // Delete User From Database
-    public function delete($id) {
-      $sql = "DELETE FROM utilisateur WHERE id_utilisateur = :id_utilisateur";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute(['id_utilisateur' => $id]);
-      return true;
-    }
   }
+
 
 ?>
