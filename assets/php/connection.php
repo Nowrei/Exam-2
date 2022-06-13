@@ -19,7 +19,7 @@ if ( $count == 1) {
 
                 if (password_verify($password,$resultat['mdp_utilisateur'])) {
                     session_start();
-                    $_SESSION['id_utilisateur'] = $resultat['id_utilisateur'];
+                    $_SESSION['id_utilisateur'] = $resultat['iid_utilisateur'];
                     $_SESSION['pseudo_utilisateur'] = $resultat['pseudo_utilisateur'];
                     $_SESSION['role_utilisateur'] = $resultat['role_utilisateur'];
                     header("location:../../index.php");

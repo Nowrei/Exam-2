@@ -1,3 +1,6 @@
+<?php session_start(); 
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -39,15 +42,9 @@
               <input type="text" name="image" class="form-control form-control-lg" placeholder="Entrer une image" id="image" required>
               <div class="invalid-feedback">Entrer une image!</div>
             </div>
-            <div class="mb-3">
-              <input type="text" class="form-control form-control-lg" id="objet" placeholder="Description du projet" name="objet">
-              <div class="invalid-feedback">Entrer une description de votre projet!</div>
-            </div>
-
-
 
             <div class="mb-3">
-              <input type="submit" value="Ajouter Utilisateur" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
+              <input type="submit" value="Ajouter un projet" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
             </div>
           </form>
         </div>
@@ -106,10 +103,10 @@
     <div class="row mt-4">
       <div class="col-lg-12 d-flex justify-content-between align-items-center">
         <div>
-          <h4 class="text-primary">Tout les utilisateur en base de donnée !</h4>
+          <h4 class="text-primary">Tout vos projets !</h4>
         </div>
         <div>
-          <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">Ajouter un utilisateur</button>
+          <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">Ajouter un projet</button>
         </div>
       </div>
     </div>
@@ -125,11 +122,12 @@
           <table class="table table-striped table-bordered text-center">
             <thead>
               <tr>
+                <th>Nom</th>
+                <th>Heure ajout</th>
                 <th>Titre</th>
                 <th>Lien GitHub</th>
                 <th>Lien</th>
                 <th>Image</th>
-                <th>Message</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -141,6 +139,7 @@
       </div>
     </div>
   </div>
+  <?php echo ($_SESSION['id_utilisateur']); ?>
   <script src="assets/js/text.js"></script>
 </body>
 </html>

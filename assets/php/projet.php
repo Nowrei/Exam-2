@@ -1,5 +1,5 @@
 <?php
-
+session_start();
   require_once '../class/bdd.php';
   require_once '../class/util.php';
 
@@ -7,19 +7,23 @@
   $util = new Util;
 
   // Handle Add New User Ajax Request
-  $t = date('d-m-Y H:i:s');
+  
+
+  date_default_timezone_set('Europe/Amsterdam');    
+  $DateAndTime = date('m-d-Y H:i:s ', time()); 
+
   if (isset($_POST['add'])) {
+    $nom = $util->testInput(htmlspecialchars($_SESSION['pseudo_utilisateur']));
+    $heure = $util->testInput($DateAndTime);
     $titre = $util->testInput($_POST['titre']);
     $github = $util->testInput($_POST['github']);
     $lien = $util->testInput($_POST['lien']);
     $image = $util->testInput($_POST['image']);
-    $message = $util->testInput($_POST['objet']);
-    $nom = $util->testInput($_GET($_SESSION['pseudo_utilisateur']));
-    $heure = $util->testInput($t);
-    $id_utilisateur = $util->testInput($_SESSION['id_utilisateur']);
+  
+   
     
 
-    if ($db->insert($titre, $github, $lien, $image, $message, $nom, $heure, $id_utilisateur)) {
+    if ($db->insert($nom, $heure, $titre, $github, $lien, $image)) {
       echo $util->showMessage('success', 'User inserted successfully!');
     } else {
       echo $util->showMessage('danger', 'Something went wrong!');
@@ -33,11 +37,12 @@
     if ($users) {
       foreach ($users as $row) {
         $output .= '<tr>
+                      <td>' . $row['nom_projet'] . '</td>
+                      <td>' . $row['heure_projet'] . '</td>
                       <td>' . $row['titre_projet'] . '</td>
                       <td>' . $row['github_projet'] . '</td>
                       <td>' . $row['lien_projet'] . '</td>
                       <td>' . $row['image_projet'] . '</td>
-                      <td>' . $row['message_projet'] . '</td>
                       <td>
                        
 

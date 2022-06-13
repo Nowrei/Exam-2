@@ -25,9 +25,9 @@
 
   class Database extends Config {
     // Insert User Into Database
-    public function insert($nom, $heure, $titre, $github, $lien, $image, $message, $id_utilisateur) {
-      $sql = "INSERT INTO projet (nom_projet, heure_projet, titre_projet, github_projet, lien_projet, image_projet, message_projet, id_utilisateur) 
-      VALUES (:nom_projet, :heure_projet, :titre_projet, :github_projet, :lien_projet, :image_projet, :message_projet, :id_utilisateur)";
+    public function insert($nom, $heure, $titre, $github, $lien, $image) {
+      $sql = "INSERT INTO projet_utilisateur (nom_projet, heure_projet, titre_projet, github_projet, lien_projet, image_projet) 
+      VALUES (:nom_projet, :heure_projet, :titre_projet, :github_projet, :lien_projet, :image_projet)";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
         ':nom_projet' => $nom,
@@ -36,8 +36,8 @@
         ':github_projet' => $github,
         ':lien_projet' => $lien,
         ':image_projet' => $image,
-        ':message_utilisateur' => $message,
-        ':id_utilisateur' => $id_utilisateur
+
+
     
       ]);
       return true;
@@ -45,7 +45,7 @@
 
     // Fetch All Users From Database
     public function read() {
-      $sql = "SELECT * FROM projet";
+      $sql = "SELECT * FROM projet_utilisateur";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute();
       $result = $stmt->fetchAll();
@@ -54,7 +54,7 @@
 
     // Fetch Single User From Database
     public function readOne($id) {
-      $sql = "SELECT * FROM projet WHERE id_projet = :id";
+      $sql = "SELECT * FROM projet_utilisateur WHERE id_projet = :id";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['id' => $id]);
       $result = $stmt->fetch();
@@ -64,7 +64,7 @@
     // Update Single User
     public function update($id, $pseudo, $mail, $password, $role) {
       
-      $sql = "UPDATE projet SET pseudo_projet = :pseudo_projet, mail_projet = :mail_projet, mdp_projet = :mdp_projet, role_projet = :role_projet WHERE id_projet = :id_projet";
+      $sql = "UPDATE projet_utilisateur SET pseudo_projet = :pseudo_projet, mail_projet = :mail_projet, mdp_projet = :mdp_projet, role_projet = :role_projet WHERE id_projet = :id_projet";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
         ':pseudo_projet' => $pseudo,
@@ -79,7 +79,7 @@
 
     // Delete User From Database
     public function delete($id) {
-      $sql = "DELETE FROM projet WHERE id_projet = :id_projet";
+      $sql = "DELETE FROM projet_utilisateur WHERE id_projet = :id_projet";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['id_projet' => $id]);
       return true;

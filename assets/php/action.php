@@ -53,7 +53,7 @@
   if (isset($_GET['edit'])) {
     $id = $_GET['id'];
 
-    $users = $db->readOne($id);
+    $user = $db->readOne($id);
     echo json_encode($users);
   }
 
