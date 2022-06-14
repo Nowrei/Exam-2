@@ -1,5 +1,6 @@
 <?php
 
+
   class Config {
     protected const DBHOST = 'localhost';
     protected const DBUSER = 'root';
@@ -58,7 +59,7 @@
     // Update Single User
     public function update($id, $pseudo, $mail, $password, $role) {
       
-      $sql = "UPDATE utilisateur SET pseudo_utilisateur = :pseudo_utilisateur, mail_utilisateur = :mail_utilisateur, mdp_utilisateur = :mdp_utilisateur, role_utilisateur = :role_utilisateur WHERE id_utilisateur = :id_utilisateur";
+      $sql = "UPDATE `utilisateur` SET `pseudo_utilisateur` = :pseudo_utilisateur, mail_utilisateur = :mail_utilisateur, mdp_utilisateur = :mdp_utilisateur, role_utilisateur = :role_utilisateur WHERE `utilisateur`.`id_utilisateur` = :id_utilisateur";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
         ':pseudo_utilisateur' => $pseudo,

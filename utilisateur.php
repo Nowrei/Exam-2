@@ -145,7 +145,7 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
       </div>
     </div>
   </div>
-  <script src="assets/js/text.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
 <?php }
