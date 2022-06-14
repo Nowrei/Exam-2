@@ -1,20 +1,29 @@
 <?php
-
-  require_once '../class/db.php';
+session_start();
+  require_once '../class/bdd.php';
   require_once '../class/util.php';
 
   $db = new Database;
   $util = new Util;
 
   // Handle Add New User Ajax Request
+  
+
+  date_default_timezone_set('Europe/Amsterdam');    
+  $DateAndTime = date('m-d-Y H:i:s ', time()); 
+
   if (isset($_POST['add'])) {
-    $pseudo = $util->testInput($_POST['pseudo']);
-    $mail = $util->testInput($_POST['mail']);
-    $password = $util->testInput($_POST['mdp']);
-    $role = $util->testInput($_POST['role']);
+    $nom = $util->testInput(htmlspecialchars($_SESSION['pseudo_utilisateur']));
+    $heure = $util->testInput($DateAndTime);
+    $titre = $util->testInput($_POST['titre']);
+    $github = $util->testInput($_POST['github']);
+    $lien = $util->testInput($_POST['lien']);
+    $image = $util->testInput($_POST['image']);
+  
+   
     
 
-    if ($db->insert($pseudo, $mail, $password, $role)) {
+    if ($db->insert($nom, $heure, $titre, $github, $lien, $image)) {
       echo $util->showMessage('success', 'User inserted successfully!');
     } else {
       echo $util->showMessage('danger', 'Something went wrong!');
@@ -28,16 +37,12 @@
     if ($users) {
       foreach ($users as $row) {
         $output .= '<tr>
-                      <td>' . $row['id_utilisateur'] . '</td>
-                      <td>' . $row['pseudo_utilisateur'] . '</td>
-                      <td>' . $row['mail_utilisateur'] . '</td>
-                      <td>' . $row['mdp_utilisateur'] . '</td>
-                      <td>' . $row['role_utilisateur'] . '</td>
-                      <td>
-                        <a href="#" id="' . $row['id_utilisateur'] . '" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editUserModal">Edit</a>
 
-                        <a href="#" id="' . $row['id_utilisateur'] . '" class="btn btn-danger btn-sm rounded-pill py-0 deleteLink">Delete</a>
-                      </td>
+                      <td>' . $row['titre_projet'] . '</td>
+                      <td>' . $row['github_projet'] . '</td>
+                      <td>' . $row['lien_projet'] . '</td>
+                      <td>' . $row['image_projet'] . '</td>
+                     
                     </tr>';
       }
       echo $output;
@@ -53,7 +58,7 @@
   if (isset($_GET['edit'])) {
     $id = $_GET['id'];
 
-    $user = $db->readOne($id);
+    $users = $db->readOne($id);
     echo json_encode($users);
   }
 

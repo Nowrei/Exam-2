@@ -1,6 +1,6 @@
 <?php session_start(); 
-if($_SESSION['role_utilisateur'] != '0') { ?>
 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,40 +17,34 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Ajouter un utilisateur</h5>
+          <h5 class="modal-title">Ajouter un projet</h5>
           <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="add-user-form" class="p-2" novalidate>
             <div class="row mb-3 gx-3">
               <div class="col">
-                <input type="text" name="pseudo" class="form-control form-control-lg" placeholder="Pseudo" required>
-                <div class="invalid-feedback">Un pseudo est requis!</div>
+                <input type="text" name="titre" class="form-control form-control-lg" placeholder="Titre" required>
+                <div class="invalid-feedback">Entrer un titre!</div>
               </div>
 
               <div class="col">
-                <input type="text" name="mail" class="form-control form-control-lg" placeholder="Mail" required>
-                <div class="invalid-feedback">Un mail est requis!</div>
+                <input type="text" name="github" class="form-control form-control-lg" placeholder="Lien Github" required>
+                <div class="invalid-feedback">Entrer un lien GitHub!</div>
               </div>
             </div>
 
             <div class="mb-3">
-              <input type="password" name="mdp" class="form-control form-control-lg" placeholder="Entrer le mot de passe" required>
-              <div class="invalid-feedback">Un mot de passe est requis!</div>
+              <input type="text" name="lien" class="form-control form-control-lg" placeholder="Entrer le lien de votre projet" id="lien" required>
+              <div class="invalid-feedback">Entrer un lien vers votre projet!</div>
             </div>
             <div class="mb-3">
-            <label for="Pays">Role</label>
-          <select class="form-select" aria-label="Default select example"  name="role">
-            <option selected>0</option>
-            <option value="1">1</option>
-
-          </select>
+              <input type="text" name="image" class="form-control form-control-lg" placeholder="Entrer une image" id="image" required>
+              <div class="invalid-feedback">Entrer une image!</div>
             </div>
 
-
-
             <div class="mb-3">
-              <input type="submit" value="Ajouter Utilisateur" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
+              <input type="submit" value="Ajouter un projet" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
             </div>
           </form>
         </div>
@@ -72,18 +66,18 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
             <input type="hidden" name="id" id="id">
             <div class="row mb-3 gx-3">
               <div class="col">
-                <input type="text" name="pseudo" id="pseudo" class="form-control form-control-lg" placeholder="Entrer le pseudo" required>
+                <input type="text" name="pseudo"  class="form-control form-control-lg" placeholder="Entrer le pseudo" required>
                 <div class="invalid-feedback">Un pseudo est requis !</div>
               </div>
 
               <div class="col">
-                <input type="email" name="mail" id="mail" class="form-control form-control-lg" placeholder="Entrer un mail" required>
+                <input type="email" name="mail"  class="form-control form-control-lg" placeholder="Entrer un mail" required>
                 <div class="invalid-feedback">Un mail est requis!</div>
               </div>
             </div>
 
             <div class="mb-3">
-              <input type="password" name="mdp" id="mdp" class="form-control form-control-lg" placeholder="Entrer un mot de passe" required>
+              <input type="password" name="mdp"  class="form-control form-control-lg" placeholder="Entrer un mot de passe" required>
               <div class="invalid-feedback">Un mot de passe est requis!</div>
             </div>
 
@@ -109,10 +103,10 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
     <div class="row mt-4">
       <div class="col-lg-12 d-flex justify-content-between align-items-center">
         <div>
-          <h4 class="text-primary">Tout les utilisateur en base de donnée !</h4>
+          <h4 class="text-primary">Tout vos projets !</h4>
         </div>
         <div>
-          <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">Ajouter un utilisateur</button>
+          <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">Ajouter un projet</button>
         </div>
       </div>
     </div>
@@ -128,13 +122,10 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
           <table class="table table-striped table-bordered text-center">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Pseudo</th>
-                <th>Email</th>
-                <th>Mot de passe</th>
-                <th>Role</th>
-                
-                <th>Action</th>
+                <th>Titre</th>
+                <th>Lien GitHub</th>
+                <th>Lien</th>
+                <th>Image</th>
               </tr>
             </thead>
             <tbody>
@@ -145,9 +136,6 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
       </div>
     </div>
   </div>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/text.js"></script>
 </body>
 </html>
-<?php }
-else{header("location:index.php");}
-        ?> 

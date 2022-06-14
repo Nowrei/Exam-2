@@ -1,6 +1,7 @@
 <?php
 
 
+  
   class Config {
     protected const DBHOST = 'localhost';
     protected const DBUSER = 'root';
@@ -24,15 +25,19 @@
 
   class Database extends Config {
     // Insert User Into Database
-    public function insert($pseudo, $mail, $password, $role) {
-      $password = password_hash( $password, PASSWORD_DEFAULT);   
-      $sql = "INSERT INTO utilisateur (pseudo_utilisateur, mail_utilisateur, mdp_utilisateur, role_utilisateur) VALUES (:pseudo_utilisateur, :mail_utilisateur, :mdp_utilisateur, :role_utilisateur)";
+    public function insert($nom, $heure, $titre, $github, $lien, $image) {
+      $sql = "INSERT INTO projet_utilisateur (nom_projet, heure_projet, titre_projet, github_projet, lien_projet, image_projet) 
+      VALUES (:nom_projet, :heure_projet, :titre_projet, :github_projet, :lien_projet, :image_projet)";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
-        ':pseudo_utilisateur' => $pseudo,
-        ':mail_utilisateur' => $mail,
-        ':mdp_utilisateur' => $password,
-        ':role_utilisateur' =>$role
+        ':nom_projet' => $nom,
+        ':heure_projet' => $heure,
+        ':titre_projet' => $titre,
+        ':github_projet' => $github,
+        ':lien_projet' => $lien,
+        ':image_projet' => $image,
+
+
     
       ]);
       return true;
@@ -40,7 +45,7 @@
 
     // Fetch All Users From Database
     public function read() {
-      $sql = "SELECT * FROM utilisateur";
+      $sql = "SELECT * FROM projet_utilisateur";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute();
       $result = $stmt->fetchAll();
@@ -49,7 +54,7 @@
 
     // Fetch Single User From Database
     public function readOne($id) {
-      $sql = "SELECT * FROM utilisateur WHERE id_utilisateur = :id";
+      $sql = "SELECT * FROM projet_utilisateur WHERE id_projet = :id";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['id' => $id]);
       $result = $stmt->fetch();
@@ -59,14 +64,14 @@
     // Update Single User
     public function update($id, $pseudo, $mail, $password, $role) {
       
-      $sql = "UPDATE `utilisateur` SET `pseudo_utilisateur` = :pseudo_utilisateur, mail_utilisateur = :mail_utilisateur, mdp_utilisateur = :mdp_utilisateur, role_utilisateur = :role_utilisateur WHERE `utilisateur`.`id_utilisateur` = :id_utilisateur";
+      $sql = "UPDATE projet_utilisateur SET pseudo_projet = :pseudo_projet, mail_projet = :mail_projet, mdp_projet = :mdp_projet, role_projet = :role_projet WHERE id_projet = :id_projet";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
-        ':pseudo_utilisateur' => $pseudo,
-        ':mail_utilisateur' => $mail,
-        ':mdp_utilisateur' => $password,
-        ':role_utilisateur' => $role,
-        ':id_utilisateur' => $id
+        ':pseudo_projet' => $pseudo,
+        ':mail_projet' => $mail,
+        ':mdp_projet' => $password,
+        ':role_projet' => $role,
+        ':id_projet' => $id
       ]);
 
       return true;
@@ -74,9 +79,9 @@
 
     // Delete User From Database
     public function delete($id) {
-      $sql = "DELETE FROM utilisateur WHERE id_utilisateur = :id_utilisateur";
+      $sql = "DELETE FROM projet_utilisateur WHERE id_projet = :id_projet";
       $stmt = $this->conn->prepare($sql);
-      $stmt->execute(['id_utilisateur' => $id]);
+      $stmt->execute(['id_projet' => $id]);
       return true;
     }
   }

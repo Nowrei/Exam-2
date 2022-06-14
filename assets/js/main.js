@@ -54,16 +54,17 @@ tbody.addEventListener("click", (e) => {
 });
 
 const editUser = async (id) => {
-  const data = await fetch(`assets/php/action.php?edit=1&id=${id}`, {
+  const data = await fetch(`./assets/php/action.php?edit=1&id=${id}`, {
     method: "GET",
   });
   const response = await data.json();
   document.getElementById("id").value = response.id;
   document.getElementById("pseudo").value = response.pseudo;
   document.getElementById("mail").value = response.mail;
-  document.getElementById("mdp").value = response.mail;
-  document.getElementById("phone").value = response.phone;
+  document.getElementById("mdp").value = response.mdp;
+  document.getElementById("role").value = response.role;
 };
+
 
 // Update User Ajax Request
 updateForm.addEventListener("submit", async (e) => {

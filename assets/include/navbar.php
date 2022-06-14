@@ -28,10 +28,12 @@
             <li><a class="dropdown-item" href="#" ><?php echo $_SESSION['pseudo_utilisateur'];?></a></li>
             <?php 
               if($_SESSION['role_utilisateur'] != '0') { ?>
+              <li><a class="dropdown-item" href="projet.php" >Ajouter un projet</a></li>
             <li><a class="dropdown-item" href="utilisateur.php" >Modifier les utilisateurs</a></li>
             <li><a class="dropdown-item" href="assets/php/deconnection.php" >Se déconnecter</a></li>
+
             <?php }else {?>
-            <li><a class="dropdown-item" href="" >Ajouter un projet</a></li>
+            <li><a class="dropdown-item" href="projet.php" >Ajouter un projet</a></li>
             <li><a class="dropdown-item" href="assets/php/deconnection.php" >Se déconnecter</a></li>
             <?php } ?>
             <?php }else { ?>
