@@ -122,13 +122,10 @@
           <table class="table table-striped table-bordered text-center">
             <thead>
               <tr>
-                <th>Nom</th>
-                <th>Heure ajout</th>
                 <th>Titre</th>
                 <th>Lien GitHub</th>
                 <th>Lien</th>
                 <th>Image</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>

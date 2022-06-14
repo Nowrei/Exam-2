@@ -37,17 +37,12 @@ session_start();
     if ($users) {
       foreach ($users as $row) {
         $output .= '<tr>
-                      <td>' . $row['nom_projet'] . '</td>
-                      <td>' . $row['heure_projet'] . '</td>
+
                       <td>' . $row['titre_projet'] . '</td>
                       <td>' . $row['github_projet'] . '</td>
                       <td>' . $row['lien_projet'] . '</td>
                       <td>' . $row['image_projet'] . '</td>
-                      <td>
-                       
-
-                        <a href="#" id="' . $row['id_projet'] . '" class="btn btn-danger btn-sm rounded-pill py-0 deleteLink">Delete</a>
-                      </td>
+                     
                     </tr>';
       }
       echo $output;
