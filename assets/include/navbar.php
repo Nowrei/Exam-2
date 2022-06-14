@@ -31,9 +31,7 @@
               <li><a class="dropdown-item" href="projet.php" >Ajouter un projet</a></li>
             <li><a class="dropdown-item" href="utilisateur.php" >Modifier les utilisateurs</a></li>
             <li><a class="dropdown-item" href="assets/php/deconnection.php" >Se déconnecter</a></li>
-            <div>
-          <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">Ajouter un projet</button>
-        </div>
+
             <?php }else {?>
             <li><a class="dropdown-item" href="projet.php" >Ajouter un projet</a></li>
             <li><a class="dropdown-item" href="assets/php/deconnection.php" >Se déconnecter</a></li>

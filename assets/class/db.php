@@ -1,7 +1,5 @@
 <?php
 
-
-  
   class Config {
     protected const DBHOST = 'localhost';
     protected const DBUSER = 'root';

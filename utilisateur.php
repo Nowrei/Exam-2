@@ -35,12 +35,12 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
             </div>
 
             <div class="mb-3">
-              <input type="password" name="mdp" class="form-control form-control-lg" placeholder="Entrer le mot de passe" id="mdp" required>
+              <input type="password" name="mdp" class="form-control form-control-lg" placeholder="Entrer le mot de passe" required>
               <div class="invalid-feedback">Un mot de passe est requis!</div>
             </div>
             <div class="mb-3">
             <label for="Pays">Role</label>
-          <select class="form-select" aria-label="Default select example" id="role" name="role">
+          <select class="form-select" aria-label="Default select example"  name="role">
             <option selected>0</option>
             <option value="1">1</option>
 
@@ -72,18 +72,18 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
             <input type="hidden" name="id" id="id">
             <div class="row mb-3 gx-3">
               <div class="col">
-                <input type="text" name="pseudo"  class="form-control form-control-lg" placeholder="Entrer le pseudo" required>
+                <input type="text" name="pseudo" id="pseudo" class="form-control form-control-lg" placeholder="Entrer le pseudo" required>
                 <div class="invalid-feedback">Un pseudo est requis !</div>
               </div>
 
               <div class="col">
-                <input type="email" name="mail"  class="form-control form-control-lg" placeholder="Entrer un mail" required>
+                <input type="email" name="mail" id="mail" class="form-control form-control-lg" placeholder="Entrer un mail" required>
                 <div class="invalid-feedback">Un mail est requis!</div>
               </div>
             </div>
 
             <div class="mb-3">
-              <input type="password" name="mdp"  class="form-control form-control-lg" placeholder="Entrer un mot de passe" required>
+              <input type="password" name="mdp" id="mdp" class="form-control form-control-lg" placeholder="Entrer un mot de passe" required>
               <div class="invalid-feedback">Un mot de passe est requis!</div>
             </div>
 
@@ -133,6 +133,7 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
                 <th>Email</th>
                 <th>Mot de passe</th>
                 <th>Role</th>
+                
                 <th>Action</th>
               </tr>
             </thead>
@@ -144,7 +145,7 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
       </div>
     </div>
   </div>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/text.js"></script>
 </body>
 </html>
 <?php }

@@ -22,7 +22,7 @@ if ( $count == 1) {
                     $_SESSION['id_utilisateur'] = $resultat['iid_utilisateur'];
                     $_SESSION['pseudo_utilisateur'] = $resultat['pseudo_utilisateur'];
                     $_SESSION['role_utilisateur'] = $resultat['role_utilisateur'];
-                    header("location:../../index.php");
+                    header("location:../../accueil.php");
 
 
 

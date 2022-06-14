@@ -1,7 +1,6 @@
-<?php 
-session_start();
-if(!isset($_SESSION['pseudo_utilisateur'])) {
-
+<?php session_start();
+require 'assets/class/config.php';
+require 'assets/class/select.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,7 +28,32 @@ if(!isset($_SESSION['pseudo_utilisateur'])) {
 <body>
 <?php include 'assets/include/navbar.php'?>
 
-<?php include 'assets/include/card.php'?>
+<div class="row row-cols-1 row-cols-md-3 g-4 ms-5 me-5 mt-5 mb-5">
+<?php
+            $projet = new projet;
+            $result = $projet->index();
+          foreach($result as $row)
+            {
+          ?>
+
+  <div class="col">
+    <div class="card h-100">
+      <a href="<?= $row['lien_projet'] ?>"><img src="<?= $row['image_projet'] ?>" class="card-img-top rounded" alt="Responsive image"></a>
+      <div class="card-body">
+        <h5 class="card-title"><?= $row['titre_projet'] ?></h5>
+        <p class="card-text">Mise en place du maquettage du one page avec redirection vers Miro et la maquette ainsi que vers GitHub avec les différents push et merge effectué.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted me-auto ms-auto">
+          <button type="button" class="btn btn-primary"><a class="nav-link text-light" href="https://miro.com/app/board/uXjVOvcoIII=/" target="_blank" rel="noopener noreferrer">Miro</a></button>
+        <button type="button" class="btn btn-primary"><a class="nav-link text-light" href="<?= $row['github_projet'] ?>" target="_blank" rel="noopener noreferrer">GitHub</a></button></small>
+      </div>
+    </div>
+  </div>
+  <?php
+            }
+            ?>
+</div>
 
 <?php include 'assets/include/footer.php' ?>
 
@@ -42,7 +66,3 @@ if(!isset($_SESSION['pseudo_utilisateur'])) {
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
 </body>
-<?php }
-
-else{header("location:accueil.php");}
-        ?>

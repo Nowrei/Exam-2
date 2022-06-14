@@ -139,7 +139,6 @@
       </div>
     </div>
   </div>
-  <?php echo ($_SESSION['id_utilisateur']); ?>
   <script src="assets/js/text.js"></script>
 </body>
 </html>
