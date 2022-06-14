@@ -103,7 +103,7 @@
     <div class="row mt-4">
       <div class="col-lg-12 d-flex justify-content-between align-items-center">
         <div>
-          <h4 class="text-primary">Tout vos projets !</h4>
+          <h4 class="text-primary">Liste des projets</h4>
         </div>
         <div>
           <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">Ajouter un projet</button>

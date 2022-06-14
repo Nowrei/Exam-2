@@ -62,15 +62,15 @@
     }
 
     // Update Single User
-    public function update($id, $pseudo, $mail, $password, $role) {
+    public function update($id, $titre, $github, $lien, $image) {
       
-      $sql = "UPDATE projet_utilisateur SET pseudo_projet = :pseudo_projet, mail_projet = :mail_projet, mdp_projet = :mdp_projet, role_projet = :role_projet WHERE id_projet = :id_projet";
+      $sql = "UPDATE projet_utilisateur SET titre_projet = :titre_projet, github_projet = :github_projet, lien_projet = :lien_projet, image_projet = :image_projet WHERE projet.id_projet = :id_projet";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute([
-        ':pseudo_projet' => $pseudo,
-        ':mail_projet' => $mail,
-        ':mdp_projet' => $password,
-        ':role_projet' => $role,
+        ':titre_projet' => $titre,
+        ':github_projet' => $github,
+        ':lien_projet' => $lien,
+        ':image_projet' => $image,
         ':id_projet' => $id
       ]);
 
