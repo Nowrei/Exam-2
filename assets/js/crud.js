@@ -54,16 +54,14 @@ tbody.addEventListener("click", (e) => {
 });
 
 const editUser = async (id) => {
-  const data = await fetch(`assets/php/crud_projet.php?edit=1&id=${id}`, {
+  const data = await fetch(`./assets/php/crud_projet.php?edit=1&id=${id}`, {
     method: "GET",
   });
   const response = await data.json();
   document.getElementById("id").value = response.id;
-  document.getElementById("titre").value = response.titre;
-  document.getElementById("github").value = response.github;
-  document.getElementById("lien").value = response.lien;
-  document.getElementById("image").value = response.image;
+  
 };
+
 
 // Update User Ajax Request
 updateForm.addEventListener("submit", async (e) => {

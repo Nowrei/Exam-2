@@ -66,12 +66,12 @@
             <input type="hidden" name="id" id="id">
             <div class="row mb-3 gx-3">
               <div class="col">
-                <input type="text" name="titre" id="titre"  class="form-control form-control-lg" placeholder="Entrer un titre" required>
+                <input type="text"  name ="titre" id="titre"  class="form-control form-control-lg" placeholder="Entrer un titre" required>
                 <div class="invalid-feedback">Un titre est requis !</div>
               </div>
 
               <div class="col">
-                <input type="text" name="github" id="github" class="form-control form-control-lg" placeholder="Entrer un lien GitHub" required>
+                <input type="text"  name="github" id="github" class="form-control form-control-lg" placeholder="Entrer un lien GitHub" required>
                 <div class="invalid-feedback">Un lien GitHub est requis!</div>
               </div>
             </div>
