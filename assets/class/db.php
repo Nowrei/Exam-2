@@ -37,7 +37,15 @@
       ]);
       return true;
     }
-
+    // Fetch All Users From Database
+    public function read() {
+      $sql = "SELECT * FROM utilisateur";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetchAll();
+      return $result;
+    }
+    
     // Fetch All Users From Database
     public function read() {
       $sql = "SELECT * FROM utilisateur";

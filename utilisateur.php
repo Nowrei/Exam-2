@@ -13,12 +13,12 @@ if($_SESSION['role_utilisateur'] != '0') { ?>
 
 <body>
   <!-- Add New User Modal Start -->
-  <div class="modal fade" tabindex="-1" id="addNewUserModal">
+  <div class="" tabindex="-1" id="addNewUserModal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Ajouter un utilisateur</h5>
-          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+         
         </div>
         <div class="modal-body">
           <form id="add-user-form" class="p-2" novalidate>
